@@ -19,6 +19,7 @@ GNU GENERAL PUBLIC LICENSE
  * Usage       : Use library with AVR-GCC for Atmega family of microcontrollers (tested with Atmega 1284)
  */
 
+#include <stdio.h>
 #include <avr/io.h>
 
 //Port where DHT sensor is connected

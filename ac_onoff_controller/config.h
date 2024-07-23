@@ -17,6 +17,7 @@
 
 #define HIGH_THRESH (79)
 #define LOW_THRESH (78)
+
 #define SLEEP_CNT (38)
 /*
  * The number of watchdog-powered sleep count.
@@ -28,7 +29,8 @@
  * e.g. SLEEP_CNT should be 37.5 ~ 38 when 5 min. sleep desired.
 */
 #define RESET_DEG (-65)
-#define TARGET_DEG (-30)
+#define TARGET_DEG (-40)
+#define HOLD_ANGLE_TIME_MSEC (800)
 
 
 #define ABS(val)        val < 0 ? -val : val

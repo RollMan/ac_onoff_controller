@@ -20,6 +20,16 @@
 
 volatile int wdt_cnt = 0;
 
+#define WRITE16B(p, data) \
+	do { \
+		unsigned char sreg; \
+		sreg = SREG; \
+		cli(); \
+		p = data; \
+		SREG = sreg; \
+	} \
+	while(0)
+
 uint8_t mcusr_mirror __attribute__ ((section (".noinit")));
 void get_mcusr(void) \
 __attribute__((naked)) \
@@ -69,7 +79,6 @@ void revoke_watchdog_timer(){
 void turn_into_power_save(){
 	wdt_cnt = 0;
 	while(wdt_cnt < SLEEP_CNT){
-		send_str_usart("going into powersave.");
 		//_delay_ms(5000);  // wait until USART send completes.
 		init_watchdogtimer();
 		set_sleep_mode(SLEEP_MODE_PWR_DOWN);
@@ -78,7 +87,7 @@ void turn_into_power_save(){
 		sleep_bod_disable();
 		sei();
 		sleep_cpu();
-		send_str_usart("waking up from powersave and checking the count.\r\n");
+		send_str_usart("slp cnt:\r\n");
 		send_int8_t_decimal(wdt_cnt); send_byte_usart(' '); send_int8_t_decimal(SLEEP_CNT);
 		send_byte_usart('\r'); send_byte_usart('\n');
 	}
@@ -90,10 +99,14 @@ void turn_into_power_save(){
 void toggle_ac_switch(const int reset_deg, const int target_deg){
 	unsigned int reset_cycle = deg_to_clkcycle(reset_deg);
 	unsigned int target_cycle = deg_to_clkcycle(target_deg);
-	OCR1B = target_cycle;
-	_delay_ms(1500);
-	OCR1B = reset_cycle;
-	_delay_ms(1500);
+	PORTB |= 0x04;
+	_delay_ms(HOLD_ANGLE_TIME_MSEC);	// Wait until power stabilization.
+	OCR1A = target_cycle;
+	WRITE16B(OCR1A, target_cycle);
+	_delay_ms(HOLD_ANGLE_TIME_MSEC);
+	WRITE16B(OCR1A, reset_cycle);
+	_delay_ms(HOLD_ANGLE_TIME_MSEC);
+	PORTB &= ~0x04;
 }
 
 float calc_discomfort_index(const float temperature, const float humidity){
@@ -133,10 +146,10 @@ void timer16_write_ocr1b(uint16_t p, unsigned int i){
 
 void init_timer16(){
 	PWMOUT_DDR |= PWMOUT_BIT;
-	TCCR1A = 0b00100010;  // Disable OC1A. Enable OC1B.
+	TCCR1A = 0b10000010;  // Disable OC1B Enable OC1A (PB1).
 	TCCR1B = 0b00011001;  // no pre-scaler. Fast PWM, TOP OCR1A, Update OCR1x at BOTTOM.
 	TCCR1C = 0;
-	ICR1 = 20000;
+	WRITE16B(ICR1, 20000);
 	timer16_write_ocr1a(OCR1A, 20000);  // PWM cycle 20 ms. (prescale) / (clk) * OCR0A = (pwm_cycle) where prescale = 1, clk = 1MHz, pwm_cycle = 20ms.
 }
 
@@ -155,8 +168,8 @@ int main(void)
 	_delay_ms(1000);
 	send_str_usart("MCU restarting.\r\n");
 	
-	DDRB |= 0x04;
-	PORTB |= 0x04;
+	DDRB |= 0x06;
+	PORTB |= 0x00;
 
 	int8_t dht11_res;
 	int8_t *temp = &(int8_t){0}, *hum = &(int8_t){0};
@@ -168,22 +181,33 @@ int main(void)
 		send_byte_usart('\r');
 		send_byte_usart('\n');
 		*/
+
 		
 		// Temperature
 		dht11_res = dht_GetTempUtil(temp, hum);
 		if (dht11_res != 0){
-			
+			/*
 			send_byte_usart('e');
 			send_int8_t_decimal(dht11_res);
+			*/
 			}else{
 			float discomfort = calc_discomfort_index(*temp, *hum);
 			int toggle_switch = schmitt_trigger_if_switch_ac(&switch_status, discomfort, HIGH_THRESH, LOW_THRESH);
+			send_str_usart("discomfort, max, min: ");
+			send_int8_t_decimal((int)discomfort); send_byte_usart(' ');
+			send_int8_t_decimal((int)HIGH_THRESH); send_byte_usart(' ');
+			send_int8_t_decimal((int)LOW_THRESH); send_byte_usart('\r'); send_byte_usart('\n');
+			if (switch_status){
+				send_str_usart("switch is on\r\n");
+			}else{
+				send_str_usart("switch_is_off\r\n");
+			}
 			if (toggle_switch){
-				send_str_usart("toggling...\r\n");
+				send_str_usart("turnning the switch\r\n");
 				toggle_ac_switch(RESET_DEG, TARGET_DEG);
 			}
 
-			
+			/*
 			send_int8_t_decimal(*temp);
 			send_byte_usart(' ');
 			send_int8_t_decimal(*hum);
@@ -193,7 +217,7 @@ int main(void)
 			send_int8_t_decimal(toggle_switch);
 			send_byte_usart(' ');
 			send_int8_t_decimal(switch_status);
-			
+			*/
 
 		}
 		turn_into_power_save();
