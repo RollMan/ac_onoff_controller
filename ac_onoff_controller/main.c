@@ -154,6 +154,9 @@ int main(void)
 
 	_delay_ms(1000);
 	send_str_usart("MCU restarting.\r\n");
+	
+	DDRB |= 0x04;
+	PORTB |= 0x04;
 
 	int8_t dht11_res;
 	int8_t *temp = &(int8_t){0}, *hum = &(int8_t){0};
@@ -169,18 +172,18 @@ int main(void)
 		// Temperature
 		dht11_res = dht_GetTempUtil(temp, hum);
 		if (dht11_res != 0){
-			/*
+			
 			send_byte_usart('e');
 			send_int8_t_decimal(dht11_res);
-			*/
 			}else{
 			float discomfort = calc_discomfort_index(*temp, *hum);
 			int toggle_switch = schmitt_trigger_if_switch_ac(&switch_status, discomfort, HIGH_THRESH, LOW_THRESH);
 			if (toggle_switch){
+				send_str_usart("toggling...\r\n");
 				toggle_ac_switch(RESET_DEG, TARGET_DEG);
 			}
 
-			/*
+			
 			send_int8_t_decimal(*temp);
 			send_byte_usart(' ');
 			send_int8_t_decimal(*hum);
@@ -190,7 +193,7 @@ int main(void)
 			send_int8_t_decimal(toggle_switch);
 			send_byte_usart(' ');
 			send_int8_t_decimal(switch_status);
-			*/
+			
 
 		}
 		turn_into_power_save();

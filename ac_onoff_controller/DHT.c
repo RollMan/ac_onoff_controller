@@ -8,8 +8,6 @@ GNU GENERAL PUBLIC LICENSE
  of this license document, but changing it is not allowed.
 */
 
-#include <stdio.h>
-#include <string.h>
 #include <avr/io.h>
 #include <util/delay.h>
 
@@ -21,10 +19,8 @@ int8_t dht_GetTemp(uint16_t *temperature, uint16_t *humidity) {
 #elif DHT_TYPE == 0
 int8_t dht_GetTemp(int8_t *temperature, int8_t *humidity) {
 #endif
-	uint8_t bits[5];
+	uint8_t bits[5] = {0, 0, 0, 0};
 	uint8_t i,j = 0;
-
-	memset(bits, 0, sizeof(bits));
 
 	//prepare correct port and pin of DHT sensor
 	DHT_DDR |= (1 << DHT_INPUTPIN); //output
