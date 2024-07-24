@@ -1,0 +1,4 @@
+(sym_lib_table
+  (version 7)
+  (lib (name "ac_onoff_controller")(type "KiCad")(uri "${KIPRJMOD}/ac_onoff_controller.kicad_sym")(options "")(descr ""))
+)
