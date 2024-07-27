@@ -2447,7 +2447,7 @@
     (property "Datasheet" "" (at 281.94 129.54 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid 36cb69a9-8429-49b5-a7f2-71ff53ad743f))
+    (pin "1" (uuid 45ae65a1-d542-41d5-b113-021824d6e3bb))
     (instances
       (project "ac_onoff_controller"
         (path "/3fdcfeb5-507b-4398-9c86-207e73e94441"
@@ -2658,7 +2658,7 @@
   )
 
   (symbol (lib_id "power:GND") (at 238.76 100.33 0) (unit 1)
-    (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
+    (in_bom yes) (on_board yes) (dnp no)
     (uuid 3164bd4a-397a-4522-86d5-d66ce011ee48)
     (property "Reference" "#PWR08" (at 238.76 106.68 0)
       (effects (font (size 1.27 1.27)) hide)
@@ -2672,7 +2672,7 @@
     (property "Datasheet" "" (at 238.76 100.33 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid 9e5b3ac4-d2bd-4087-8ce4-aa07b435fd5c))
+    (pin "1" (uuid 138674ce-3456-4a36-ac8e-31a41ff78159))
     (instances
       (project "ac_onoff_controller"
         (path "/3fdcfeb5-507b-4398-9c86-207e73e94441"
@@ -2691,7 +2691,7 @@
     (property "Value" "500" (at 220.98 93.98 90)
       (effects (font (size 1.27 1.27)))
     )
-    (property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P2.54mm_Vertical" (at 220.98 99.568 90)
+    (property "Footprint" "Resistor_THT:R_Axial_DIN0309_L9.0mm_D3.2mm_P15.24mm_Horizontal" (at 220.98 99.568 90)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 220.98 97.79 0)
@@ -2700,8 +2700,8 @@
     (property "purchase" "0" (at 220.98 97.79 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid 1ee3ef08-5f3f-4d35-a199-51040fe7a511))
-    (pin "2" (uuid e9070e06-4e18-4cc8-9501-f163e19d50d8))
+    (pin "1" (uuid 9f0b9c78-73be-4d3d-a8b4-ac697b271867))
+    (pin "2" (uuid 5a12feca-0ac3-483c-8e3e-8141439a0fa3))
     (instances
       (project "ac_onoff_controller"
         (path "/3fdcfeb5-507b-4398-9c86-207e73e94441"
@@ -2770,7 +2770,7 @@
     (property "Value" "2SK4017" (at 285.75 116.84 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
-    (property "Footprint" "ac_onoff_controller:2SK4017" (at 284.48 113.03 0)
+    (property "Footprint" "Package_TO_SOT_THT:TO-251-3_Vertical" (at 284.48 113.03 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 279.4 115.57 0)
@@ -2785,9 +2785,9 @@
     (property "purchase" "3" (at 279.4 115.57 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid 05f63ed5-04b9-4fde-a17f-eca6ce8d5a9a))
-    (pin "2" (uuid f4b86b14-8289-4f7a-ac84-1ff7e6c1a66e))
-    (pin "3" (uuid 2eb6f03d-09ab-4a33-ab9b-4493f05d28b9))
+    (pin "1" (uuid 4e3bf651-4304-417d-b287-47db5f7b7b7b))
+    (pin "2" (uuid be7e3758-3888-4408-ac95-4479d346e8b4))
+    (pin "3" (uuid c45efbfd-104e-4a67-b111-5a7049af789c))
     (instances
       (project "ac_onoff_controller"
         (path "/3fdcfeb5-507b-4398-9c86-207e73e94441"
@@ -2898,7 +2898,7 @@
     (property "Datasheet" "" (at 223.52 69.85 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid 1a8b1264-b049-4aa2-95f2-ef2558395208))
+    (pin "1" (uuid 2d0a39d5-fac9-4d83-ae03-5263a919e227))
     (instances
       (project "ac_onoff_controller"
         (path "/3fdcfeb5-507b-4398-9c86-207e73e94441"
@@ -2917,7 +2917,7 @@
     (property "Value" "500" (at 220.98 88.9 90)
       (effects (font (size 1.27 1.27)))
     )
-    (property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P2.54mm_Vertical" (at 220.98 94.488 90)
+    (property "Footprint" "Resistor_THT:R_Axial_DIN0309_L9.0mm_D3.2mm_P15.24mm_Horizontal" (at 220.98 94.488 90)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 220.98 92.71 0)
@@ -2926,8 +2926,8 @@
     (property "purchase" "0" (at 220.98 92.71 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid 2f244b64-65cb-4026-a312-fbdd310345a2))
-    (pin "2" (uuid 34303a62-d888-4ecc-bdb1-0138431f26dc))
+    (pin "1" (uuid 2104ef4b-1f85-4768-a234-2c1e8b51fb9d))
+    (pin "2" (uuid 3e94e461-b720-43f6-aa26-9fd26f12044a))
     (instances
       (project "ac_onoff_controller"
         (path "/3fdcfeb5-507b-4398-9c86-207e73e94441"
@@ -2955,9 +2955,9 @@
     (property "purchase" "0" (at 289.56 99.06 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid 8456b1ee-2339-457d-8f5c-8b8a03a8e6cb))
-    (pin "2" (uuid e99c7695-be76-4fe0-b9bc-edbb886c77af))
-    (pin "3" (uuid 23d6a859-05c7-42a2-886b-decce6cdf5b3))
+    (pin "1" (uuid 7b900322-6e6d-43f5-9268-f2f4df2b3db1))
+    (pin "2" (uuid 01f55df7-1235-4352-9d47-a56226aa4d46))
+    (pin "3" (uuid 49aa93a2-df5c-4306-93ed-bb960a857185))
     (instances
       (project "ac_onoff_controller"
         (path "/3fdcfeb5-507b-4398-9c86-207e73e94441"
@@ -3320,8 +3320,8 @@
     (property "purchase" "0" (at 271.78 102.87 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid a0e2eaf0-20ca-4e75-b4d0-7dfbd0cf0cfb))
-    (pin "2" (uuid 5bbb4058-2999-4325-9325-e661afaab442))
+    (pin "1" (uuid cb9937c4-1cfa-4ebb-aa2a-aa50faffc886))
+    (pin "2" (uuid ee1d4082-0827-4a5e-9e5c-232c2e3241cd))
     (instances
       (project "ac_onoff_controller"
         (path "/3fdcfeb5-507b-4398-9c86-207e73e94441"
@@ -3355,8 +3355,8 @@
     (property "purchase" "0" (at 213.36 81.28 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid 4a98e87b-6fb6-4b9b-86a6-88b722e59e60))
-    (pin "2" (uuid 3dcd2d90-9766-49da-ae64-beb0df2f5691))
+    (pin "1" (uuid efc5dd64-3d8a-4f47-ab00-7beaa979f706))
+    (pin "2" (uuid 5e44cb55-5edd-4f71-829e-aabab5443334))
     (instances
       (project "ac_onoff_controller"
         (path "/3fdcfeb5-507b-4398-9c86-207e73e94441"
@@ -3396,7 +3396,7 @@
   )
 
   (symbol (lib_id "power:VCC") (at 266.7 91.44 0) (unit 1)
-    (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
+    (in_bom yes) (on_board yes) (dnp no)
     (uuid b34bd4c1-2d27-41e9-9557-b487d1cf443f)
     (property "Reference" "#PWR010" (at 266.7 95.25 0)
       (effects (font (size 1.27 1.27)) hide)
@@ -3410,7 +3410,7 @@
     (property "Datasheet" "" (at 266.7 91.44 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid 8791a8c7-898f-4761-9f3d-474fd53830a2))
+    (pin "1" (uuid 6703dad3-a19f-4c88-a03a-624f7b4affef))
     (instances
       (project "ac_onoff_controller"
         (path "/3fdcfeb5-507b-4398-9c86-207e73e94441"
@@ -3622,7 +3622,7 @@
     (property "Value" "2SK4017" (at 242.57 93.98 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
-    (property "Footprint" "ac_onoff_controller:2SK4017" (at 241.3 90.17 0)
+    (property "Footprint" "Package_TO_SOT_THT:TO-251-3_Vertical" (at 241.3 90.17 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 236.22 92.71 0)
@@ -3637,9 +3637,9 @@
     (property "purchase" "3" (at 236.22 92.71 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid 0943e2c4-6127-4d9a-a477-bc07f3e4fa5b))
-    (pin "2" (uuid 3533a660-7b3a-4c00-a7fb-e71dab98bc7a))
-    (pin "3" (uuid 9a1a6edf-fca4-4e2a-8dfb-ce115ae8b842))
+    (pin "1" (uuid 17f3c2b7-50a6-4756-8da4-1b969d829dc1))
+    (pin "2" (uuid 9f80a27c-4429-46ce-b607-8b084f6f612d))
+    (pin "3" (uuid a5e00d64-74bf-4977-bf53-7f90ed770a26))
     (instances
       (project "ac_onoff_controller"
         (path "/3fdcfeb5-507b-4398-9c86-207e73e94441"
@@ -3716,9 +3716,9 @@
     (property "purchase" "0" (at 251.46 77.47 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid fc32df6a-2fba-4c67-8bef-625ed4c85277))
-    (pin "2" (uuid a13df609-1f77-45b5-b34b-8893b4e26004))
-    (pin "3" (uuid 3569c91f-f432-4581-9555-6039e102d4b0))
+    (pin "1" (uuid a97e5e41-2f34-4cf5-b282-1fc29bef8a6e))
+    (pin "2" (uuid 040c9df5-8307-4d74-a465-aa2ffbeed6fa))
+    (pin "3" (uuid 8d60ab23-3e51-4ee6-beca-d6e4981dc6ba))
     (instances
       (project "ac_onoff_controller"
         (path "/3fdcfeb5-507b-4398-9c86-207e73e94441"
@@ -3894,7 +3894,7 @@
   )
 
   (symbol (lib_id "Device:C") (at 228.6 81.28 0) (unit 1)
-    (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
+    (in_bom yes) (on_board yes) (dnp no)
     (uuid f49f304a-2e78-4805-9cde-2f66ec60f7bf)
     (property "Reference" "C5" (at 232.41 80.01 0)
       (effects (font (size 1.27 1.27)) (justify left))
@@ -3911,8 +3911,8 @@
     (property "purchase" "0" (at 228.6 81.28 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid bb6bd05a-6323-41fa-ace8-2a9d6ec30fbf))
-    (pin "2" (uuid 981e6bfc-76bc-4259-97ef-c43d3e1aa1ec))
+    (pin "1" (uuid e840dca2-34d7-4c12-a001-f7357b324149))
+    (pin "2" (uuid f340ce28-466c-4945-8e58-979db953d4c2))
     (instances
       (project "ac_onoff_controller"
         (path "/3fdcfeb5-507b-4398-9c86-207e73e94441"
@@ -3971,8 +3971,8 @@
     (property "purchase" "0" (at 256.54 102.87 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid 473feb4c-6e01-4d25-911a-0a65c9e1e3ac))
-    (pin "2" (uuid eac3dce6-4e09-432a-b9e6-036b3cfcbb68))
+    (pin "1" (uuid fbaff741-b5a4-4086-b59d-38ff9434e83d))
+    (pin "2" (uuid 039e7cae-eb36-4962-9950-844bd5a3c284))
     (instances
       (project "ac_onoff_controller"
         (path "/3fdcfeb5-507b-4398-9c86-207e73e94441"
@@ -3991,7 +3991,7 @@
     (property "Value" "2SK4017" (at 78.74 36.83 90)
       (effects (font (size 1.27 1.27)))
     )
-    (property "Footprint" "ac_onoff_controller:2SK4017" (at 76.2 38.1 0)
+    (property "Footprint" "Package_TO_SOT_THT:TO-251-3_Vertical" (at 76.2 38.1 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 78.74 43.18 0)
