@@ -2477,6 +2477,9 @@
     (property "note" "" (at 67.31 185.42 0)
       (effects (font (size 1.27 1.27)) hide)
     )
+    (property "purchase" "0" (at 67.31 185.42 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
     (instances
       (project "ac_onoff_controller"
         (path "/3fdcfeb5-507b-4398-9c86-207e73e94441"
@@ -3612,6 +3615,15 @@
     (property "note" "" (at 74.93 138.43 0)
       (effects (font (size 1.27 1.27)) hide)
     )
+    (property "MPN" "DHT20" (at 74.93 138.43 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "URL" "https://akizukidenshi.com/catalog/g/g116732/" (at 74.93 138.43 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "purchase" "1" (at 74.93 138.43 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
     (pin "1" (uuid bd193c90-4414-446f-b911-43f748ed2614))
     (pin "2" (uuid 644c7c89-12a0-470a-9b98-6145e9f06fd6))
     (pin "3" (uuid 683c4c47-0202-4d47-a064-781aec9298b0))
@@ -3799,6 +3811,9 @@
     (property "note" "" (at 67.31 190.5 0)
       (effects (font (size 1.27 1.27)) hide)
     )
+    (property "purchase" "0" (at 67.31 190.5 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
     (instances
       (project "ac_onoff_controller"
         (path "/3fdcfeb5-507b-4398-9c86-207e73e94441"
@@ -3884,6 +3899,9 @@
     (property "note" "" (at 67.31 175.26 0)
       (effects (font (size 1.27 1.27)) hide)
     )
+    (property "purchase" "0" (at 67.31 175.26 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
     (instances
       (project "ac_onoff_controller"
         (path "/3fdcfeb5-507b-4398-9c86-207e73e94441"
@@ -3912,6 +3930,9 @@
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Sim.Pins" "1=K 2=A" (at 88.9 53.34 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "purchase" "0" (at 88.9 53.34 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (pin "1" (uuid c9cc38cf-3430-4c93-b05f-e676c20c2327))
@@ -3975,6 +3996,9 @@
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "note" "" (at 67.31 180.34 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "purchase" "0" (at 67.31 180.34 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (instances
