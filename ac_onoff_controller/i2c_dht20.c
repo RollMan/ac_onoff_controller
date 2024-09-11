@@ -56,6 +56,7 @@ void init_i2c(){
 uint8_t check_twi_status(TWI_TX_STATUS kind){
 	TWI_TX_STATUS twi_status = (TWSR & 0xF8);
 	int res = twi_status == kind;
+	/*
 	if (!res) {
 		DEBUG_PRINT_STR("The TWI status is not match.\nexpected, actual = ");
 		DEBUG_PRINT_HEX(kind);
@@ -63,6 +64,7 @@ uint8_t check_twi_status(TWI_TX_STATUS kind){
 		DEBUG_PRINT_HEX(twi_status);
 		DEBUG_PRINT_STR("\n");
 	}
+	*/
 	return res;
 }
 
@@ -178,7 +180,7 @@ float shift_20_bits(uint8_t high, uint8_t mid, uint8_t low){
 }
 
 void convert_dht20_temp_hum(DHT20_RECV *recv_raw, float* hum, float* temp){
-	*hum = shift_20_bits(recv_raw->hum[0], recv_raw->hum[1], recv_raw->hum[2]);
+	*hum = shift_20_bits(recv_raw->hum[0], recv_raw->hum[1], recv_raw->hum[2]) * (float)100.0;
 	*temp = shift_20_bits(recv_raw->temp[0], recv_raw->temp[1], recv_raw->temp[2]) * (float)200.0 - (float)50.0;
 }
 

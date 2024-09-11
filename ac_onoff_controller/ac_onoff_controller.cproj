@@ -122,7 +122,46 @@
     </ToolchainSettings>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="ac_switch_servo.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="ac_switch_servo.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="config.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="debug.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="i2c_dht20.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="i2c_dht20.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="indicator.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="indicator.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="main.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="powersave.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="powersave.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="usart_io.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="usart_io.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="util.h">
       <SubType>compile</SubType>
     </Compile>
   </ItemGroup>
