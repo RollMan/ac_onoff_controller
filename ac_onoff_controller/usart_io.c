@@ -7,9 +7,13 @@
 
 #include <avr/io.h>
 #include "usart_io.h"
-#include "config.h"
+#include "util.h"
+
+const uint8_t ASCII_OFFSET = 48;
+const uint8_t HEX_OFFSET = 7;
 
 void init_usart(){
+	DDRD |= (1 << PORTD1);
 	UBRR0H = (unsigned char)(BAUD_UBRR >> 8);
 	UBRR0L = (unsigned char)(BAUD_UBRR);
 	UCSR0C = 0x06;
@@ -54,10 +58,25 @@ void send_int8_t_decimal(int8_t digit){
 			str[0] = '-';
 		}
 		for(int i = 0; i < col; i++){
-			unsigned char c = (digit_abs % 10) + 48;
+			unsigned char c = (digit_abs % 10) + ASCII_OFFSET;
 			str[col - i + prefix - 1] = c;
 			digit_abs /= 10;
 		}
+	}
+	send_str_usart(str);
+}
+
+void send_uint8_t_hex(uint8_t digit){
+	char str[STRLEN];
+	for(int i = 0; i < STRLEN; i++){
+		str[i] = '\0';
+	}
+	str[0] = '0';
+	str[1] = 'x';
+	for(int i = 3; i >= 2; i--){
+		unsigned char c = (digit % 16) + ASCII_OFFSET;
+		str[i] = c >= 58 ? c + HEX_OFFSET : c;
+		digit /= 16;
 	}
 	send_str_usart(str);
 }
