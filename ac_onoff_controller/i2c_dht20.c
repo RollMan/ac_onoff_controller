@@ -189,7 +189,9 @@ uint8_t check_crc(uint8_t crc){
 }
 
 int8_t get_temp_hum(float* temp, float* hum){
+	cli();
 	uint8_t start_success = start_measurement();
+	sei();
 	if (start_success != 0){
 		DEBUG_PRINT_STR("Failed to issue the start command to DHT20. ");
 		DEBUG_PRINT_DEC(start_success);
@@ -197,7 +199,9 @@ int8_t get_temp_hum(float* temp, float* hum){
 		return 1;
 	}
 	DHT20_RECV recv_raw;
+	cli();
 	uint8_t recv_success = read_dht20(&recv_raw);
+	sei();
 	if (recv_success != 0){
 		DEBUG_PRINT_STR("Failed to read data from DHT20.\n");
 		return 2;

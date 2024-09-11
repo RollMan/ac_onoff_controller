@@ -128,6 +128,12 @@
     <Compile Include="ac_switch_servo.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="buttons.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="buttons.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="config.h">
       <SubType>compile</SubType>
     </Compile>

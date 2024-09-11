@@ -16,6 +16,7 @@
 #include "powersave.h"
 #include "indicator.h"
 #include "config.h"
+#include "buttons.h"
 
 void init();
 void main_routine();
@@ -45,6 +46,7 @@ int main(void)
 
 
 void init(){
+	init_buttons();
 	init_servo_pwm();
 	init_i2c();
 	init_indicators();
@@ -74,6 +76,15 @@ int8_t schmitt_trigger_if_switch_ac(int8_t *switch_on, const float discomfort, c
 int8_t switch_status = false;
 void main_routine(void){
 	DEBUG_PRINT_STR("Running a main routine.\n");
+	// Update switch status if a user changed the status by pressing a SW.
+	int8_t new_switch_status = get_pin_status();
+	if (new_switch_status >= 0){
+		DEBUG_PRINT_STR("switch status has been changed by user: ");
+		DEBUG_PRINT_DEC(switch_status); DEBUG_PRINT_STR("\n");
+		switch_status = new_switch_status;
+	}
+	
+	// Read sensor data
 	float temp, hum, discomfort;
 	int8_t success_read_temp_hum = get_temp_hum(&temp, &hum);
 	if(success_read_temp_hum != 0){
@@ -82,6 +93,7 @@ void main_routine(void){
 		indicate(NOLED, false);
 	}
 	
+	// Trigger a A/C switch if comfortability changes.
 	discomfort = calc_discomfort_index(temp, hum);
 	int8_t toggle_switch = schmitt_trigger_if_switch_ac(&switch_status, discomfort, HIGH_THRESH, LOW_THRESH);
 	if(toggle_switch){
@@ -104,3 +116,5 @@ void main_routine(void){
 	DEBUG_PRINT_STR("swich status "); DEBUG_PRINT_DEC(switch_status);
 	DEBUG_PRINT_STR(", toggled? "); DEBUG_PRINT_DEC(toggle_switch); DEBUG_PRINT_STR("\n");
 }
+
+

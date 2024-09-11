@@ -24,6 +24,7 @@ void init_powersave(){
 	
 	// Init the sleep confiugration
 	set_sleep_mode(SLEEP_MODE_PWR_DOWN);
+	sei();
 }
 
 void establish_wdt(){
@@ -32,6 +33,7 @@ void establish_wdt(){
 	MCUSR &= ~(1<<WDRF);
 	WDTCSR |= (1 << WDCE | 1 << WDE);
 	WDTCSR = (1 << WDIE) | (1<<WDP3) | (1 << WDP0);
+	sei();
 }
 
 void revoke_wdt(){
@@ -40,6 +42,7 @@ void revoke_wdt(){
 	MCUSR &= ~(1 << WDRF);
 	WDTCSR |= (1 << WDCE | 1 << WDE);
 	WDTCSR = 0x00;
+	sei();
 }
 
 void turn_into_sleep(){

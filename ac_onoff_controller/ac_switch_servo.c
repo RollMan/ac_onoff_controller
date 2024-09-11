@@ -10,6 +10,7 @@ do { \
 	cli(); \
 	p = data; \
 	SREG = sreg; \
+	sei(); \
 } \
 while(0)
 
