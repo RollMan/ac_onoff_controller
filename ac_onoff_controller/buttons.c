@@ -27,7 +27,7 @@
 #define RED (1 << PORTD6)
 #define GREEN (1 << PORTD5)
 
-int8_t new_pin_status = -1;
+volatile int8_t new_pin_status = -1;
 
 void init_buttons(){
 	DDRD &= ~(BLUE | RED | GREEN);
